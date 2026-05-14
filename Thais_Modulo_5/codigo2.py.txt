@@ -1,4 +1,7 @@
+codigo2.py
 import math
+
+mport math
 
 def es_cuadrado_perfecto(n):
     if n < 0:

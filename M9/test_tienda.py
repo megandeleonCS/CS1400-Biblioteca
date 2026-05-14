@@ -1,6 +1,6 @@
 # test_tienda.py
 from gestion_tienda import agregar_producto, buscar_precio
-
+#He agreado listar productos
 def run_tests():
     mi_inventario = {}
     print("--- Iniciando Pruebas de 'La Tiendita' ---")
@@ -37,3 +37,5 @@ def run_tests():
 
 if __name__ == "__main__":
     run_tests()
+
+    #El test inco que el codigo paso las pruebas

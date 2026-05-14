@@ -20,10 +20,7 @@
 #from turtle import make_turtle, forward, left
 import turtle
 
-# 1. Iniciar ventana y objeto de tortuga
-ventana = turtle.Screen()
-t = turtle.Turtle() 
-t.speed(3)
+from turtle import make_turtle, forward, left
 
 # ------------------------------------------
 # Paso 1: Crear la ventana y la tortuga
@@ -31,10 +28,18 @@ t.speed(3)
 
 # TODO:
 # Crea la tortuga usando make_turtle().
+#No se puede utilizar make_turtle() porque no esta definida.
 # La ventana debe tener 400 de alto y 400 de ancho.
+#usare screen que crea la ventana grafica
+#la variable se guardara en la variable ventana
 
 # Escribe aquí tu código
+#comienza por t, que es la variable que guarda las dimensiones del cuadrado
+#el setup es lo que hace la variable ventana
 
+ventana = turtle.Screen()
+ventana.setup(width=400, height=400)
+t = turtle. Turtle()
 
 # ------------------------------------------
 # Paso 2: Dibujar una línea
@@ -46,6 +51,7 @@ t.speed(3)
 
 # Escribe aquí tu código
 
+t.forward(100)
 
 # ------------------------------------------
 # Paso 3: Girar la tortuga
@@ -57,6 +63,9 @@ t.speed(3)
 
 # Escribe aquí tu código
 
+t.left(90)
+t.forward(100)
+
 
 # ------------------------------------------
 # Paso 4: Dibujar un cuadrado (sin bucle)
@@ -65,7 +74,6 @@ t.speed(3)
 # - 4 lados
 # - 4 giros de 90 grados
 
-print("Dibujando un cuadrado sin bucle...")
 
 # TODO:
 # Completa los movimientos necesarios
@@ -74,14 +82,25 @@ print("Dibujando un cuadrado sin bucle...")
 # La tortuga debe terminar donde empezó.
 
 # Escribe aquí tu código
+print("Dibujando un cuadrado sin bucle...")
 
+t.forward(100)
+t.left(90)
+
+t.forward(100)
+t.left(90)
+
+t.forward(100)
+t.left(90)
+
+t.forward(100)
+t.left(90)
 
 # ------------------------------------------
 # Paso 5: Dibujar un cuadrado usando un bucle
 # ------------------------------------------
 # Ahora haremos lo mismo pero usando menos código.
 
-print("Dibujando un cuadrado con bucle...")
 
 # TODO:
 # Usa un bucle for que repita 4 veces:
@@ -92,6 +111,11 @@ print("Dibujando un cuadrado con bucle...")
 #     forward(...)
 #     left(...)
 
+print("Dibujando un cuadrado con bucle...")
+
+for i in range(4):
+    t.forward(100)
+    t.left(90)
 
 # ------------------------------------------
 # Paso EXTRA (opcional)
@@ -102,4 +126,3 @@ print("Dibujando un cuadrado con bucle...")
 # - Un triángulo tiene 3 lados.
 # - Un giro completo es 360 grados.
 # - ¿Cuánto debe girar en cada esquina?
-ventana.exitonclick()

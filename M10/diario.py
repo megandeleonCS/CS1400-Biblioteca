@@ -2,15 +2,43 @@
 
 # Aqui tu funcion menu()
 
+from datetime import datetime
+menu = ()
+
+def menu():
+    print("\n1. Escribir")
+    print("2. Leer")
+    print("3. Salir")
+    return input("Seleccione una opcion: ")
+
 while True:
     opcion = menu()
 
-    #Aqui tu if/elif/elif/else statement con las opciones del menu
-    
-    # Entrada de datos
-    # Guardar en archivo
-    # Leer el archivo 
+    if opcion == "1":
+        entrada = input("Escribe tu pensamiento: ")
+        fecha = datetime.now()
 
-    
-    # Salir de tu ultimo elif con un break
-    # else solo para mostrar al usuario que no funciono lo que intentaron ingresar.
+        archivo = open("diario.txt", "a")
+        archivo.write(f"- [{fecha}] {entrada}\n")
+        archivo.close()
+
+        print("Entrada guardada.")
+
+    elif opcion == "2":
+        try:
+            archivo = open("diario.txt", "r")
+            print("\nContenido del diario:")
+            print(archivo.read())
+            archivo.close()
+        except FileNotFoundError:
+            print("No existe el archivo.")
+
+    elif opcion == "3":
+        print("Saliendo...")
+        break
+
+    else:
+        print("Opcion no valida.")
+
+
+

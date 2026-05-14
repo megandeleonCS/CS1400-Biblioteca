@@ -4,42 +4,75 @@ En este programa, el usuario ingresará el porcentaje actual de cada materia que
 y el número de créditos de cada materia. El programa convertirá cada porcentaje a un valor de GPA
 en una escala de 4.0, y luego calculará el GPA final del semestre basado en los créditos de cada materia.
 """
-
+# TODO 1: Completa la función para convertir el porcentaje a GPA usando la escala estándar.
 # Función, con un parametro, para convertir porcentaje a GPA en una escala de 4.0
 def porcentaje_a_gpa(porcentaje):
     if porcentaje >= 93:
         return 4.0
-    # TODO 1: Completa la función para convertir el porcentaje a GPA usando la escala estándar.
-
+    elif porcentaje >= 90:
+        return 3.7
+    elif porcentaje >= 87:
+        return 3.3
+    elif porcentaje >= 83:
+        return 3.0
+    elif porcentaje >= 80:
+        return 2.7
+    elif porcentaje >= 77:
+        return 2.3
+    elif porcentaje >= 73:
+        return 2.0
+    elif porcentaje >= 70:
+        return 1.7
+    elif porcentaje >= 67:
+        return 1.3
+    elif porcentaje >= 65:  
+        return 1.0
     else:
         return 0.0
 
+
 # TODO #2: Pedir cuántas materias tiene el usuario, y asignarlo a un variable (recuerda convertirlo a un entero).
-
-
+num_materias = int(input("¿Cuantas materias tienes?   "))
 
 # Inicializar variables para acumular puntos y créditos
 total_puntos = 0.0
 total_creditos = 0
 
+
 for i in range(num_materias):
-    porcentaje = float(input(f"Ingrese el porcentaje actual de la materia #{i+1} (ejemplo: 87.5): "))
+    porcentaje = float(input(f"Ingrese el porcentaje actual de la materia #{i+1}: "))
     creditos = float(input(f"Ingrese los créditos de la materia #{i+1}: "))
     
     gpa = porcentaje_a_gpa(porcentaje)
     total_puntos += gpa * creditos
     total_creditos += creditos
 
+
 # TODO #3: Utiliza un if/else para calcular el GPA final dividiendo los puntos totales entre los créditos totales,
 #  y mostrar el resultado al usuario con un mensaje claro.
 # por ejemplo si los creditos totales son mayores que 0
 # entonces calcula el GPA final y muestra el resultado
+
+if total_creditos > 0:
+    gpa_final = total_puntos / total_creditos
+    print(f"\nTu GPA final del semestre es: {round(gpa_final, 2)}")
+else:
+    print("No se ingresaron materias válidas.")
+
 # de lo contrario muestra un mensaje indicando que no se ingresaron materias válidas.
 # Si no, imprimir un mensaje indicando que no se ingresaron materias válidas o algo similar.
 
 # TODO #4: En que otra situacion podrias usar una funcion como esta?
-# 
-# 
+# En una gestion de inventario si se categoriza desde al inventario por niveles 
+# segun overstock, recursos en uso, recursos no utilizados, o bajo stock por ejemplo
+def nivel_inventario(porcentaje):
+    if porcentaje > 70:
+        return "Saludable"
+    elif porcentaje >= 40:
+        return "Moderado"
+    else:
+        return "Crítico"
+# Este podria ser un ejemplo
 #     
 """
 #Salida esperada

@@ -1,0 +1,69 @@
+#  ¿Es un Cuadrado Perfecto?
+
+Este programa te ayuda a determinar si un número es un cuadrado perfecto usando Python.
+
+##  Objetivos
+
+- Practicar funciones (`def`)
+
+- Usar condicionales (`if`, `else`)
+- Trabajar con entradas (`input`)
+- Realizar pruebas automáticas con listas y `assert`
+
+##  Instrucciones
+
+1. Completa la función `es_cuadrado_perfecto(n)` siguiendo las pistas.
+def es_cuadrado_perfecto(n):
+    if n < 0:
+        return False  # los negativos no pueden ser cuadrados perfectos
+
+    i = 0
+    while i * i <= n:
+        if i * i == n:
+            return True
+        i += 1
+
+    return False
+
+2. Ejecuta el programa.
+
+numero = int(input("Ingresa un número: "))
+
+if es_cuadrado_perfecto(numero):
+    print(numero, "es un cuadrado perfecto")
+else:
+    print(numero, "NO es un cuadrado perfecto")
+
+
+3. Introduce cualquier número y revisa si es un cuadrado perfecto.
+Estas pruebas no imprimen nada si todo está bien.
+Si algo falla, Python mostrará un error (eso es bueno para detectar fallos).
+
+assert es_cuadrado_perfecto(0) == True
+assert es_cuadrado_perfecto(1) == True
+assert es_cuadrado_perfecto(4) == True
+assert es_cuadrado_perfecto(9) == True
+assert es_cuadrado_perfecto(16) == True
+
+assert es_cuadrado_perfecto(2) == False
+assert es_cuadrado_perfecto(3) == False
+assert es_cuadrado_perfecto(8) == False
+assert es_cuadrado_perfecto(-4) == False
+
+4. Observa las pruebas automáticas al final del programa para más ejemplos.
+
+##  ¿Qué es un cuadrado perfecto?
+
+Un número es cuadrado perfecto si existe un número entero que, al multiplicarse por sí mismo, da como resultado el número original.
+En Python, un número n es cuadrado perfecto si:
+raiz = int(n ** 0.5)
+raiz * raiz == n
+
+
+#Ejemplos:
+
+- `4` es un cuadrado perfecto porque `2 * 2 = 4`
+- `9` es un cuadrado perfecto porque `3 * 3 = 9`
+- `8` **NO** es un cuadrado perfecto
+
+

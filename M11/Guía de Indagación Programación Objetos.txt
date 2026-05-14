@@ -1,0 +1,61 @@
+Guía de Indagación: Programación Orientada a Objetos (POO)
+
+
+PARTE 1: ANÁLISIS DEL CÓDIGO
+
+Estructura de la Clase
+1. Nombre de la clase: Semaforo
+2. Propósito de _init_: Inicializar el objeto con sus valores iniciales.
+3. Parámetros: 1 (colorIndice)
+4. Atributos: indiceColores y COLORES
+
+Lógica y Comportamiento
+5. Estado inicial: Lo determina el valor pasado al crear el objeto (ej: Semaforo(0))
+6. Orden de colores: Sí importa, define el ciclo del semáforo
+7. Cambio de estado: El índice aumenta en 1 cada vez que se llama cambiarLuz()
+8. Cuando llega a 3: Se reinicia a 0
+9. Razón: Para crear un ciclo continuo
+10. Método _str_: Define lo que se imprime (el color actual)
+11. COLORES en mayúsculas: Convención de constante
+
+Uso de la Clase
+12. Primer objeto: semaforo1
+13. Patrón: Sí, ciclo repetitivo
+14. Explicación: Verde → Amarillo → Rojo → Verde
+15. Semaforo(2): Comienza en Rojo
+
+PARTE 2: PROGRAMACIÓN
+
+Código corregido:
+
+class Semaforo:
+   def _init_(self, colorIndice):
+       self.indiceColores = colorIndice
+       self.COLORES = ["Verde", "Amarillo", "Rojo"]
+
+   def cambiarLuz(self):
+       self.indiceColores += 1
+       if self.indiceColores >= len(self.COLORES):
+           self.indiceColores = 0
+
+   def _str_(self):
+       return self.COLORES[self.indiceColores]
+
+semaforo1 = Semaforo(0)
+semaforo2 = Semaforo(2)
+
+print("Inicial:")
+print("Semáforo 1:", semaforo1)
+print("Semáforo 2:", semaforo2)
+
+eleccion = ""
+while eleccion != "q":
+   eleccion = input("Enter para cambiar (q para salir): ").lower()
+   if eleccion != "q":
+       semaforo1.cambiarLuz()
+       semaforo2.cambiarLuz()
+       print("Semáforo 1:", semaforo1)
+       print("Semáforo 2:", semaforo2)
+
+Pregunta Final:
+16. No cambian automáticamente porque cada objeto es independiente.

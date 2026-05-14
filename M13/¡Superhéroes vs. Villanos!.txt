@@ -1,0 +1,96 @@
+superheroes_ villanos
+Crea un juego de batalla sencillo entre tu superhéroe y tu villano favoritos. Ambos comienzan con 100 puntos de vida. Cada vez que luchan, asígnales una fuerza para determinar al ganador; la fuerza se basará en un número aleatorio. Tú decides cómo establecer el algoritmo de fuerza. El jugador con más fuerza gana y el otro pierde puntos de vida (de nuevo, tú decides el algoritmo para determinar cuántos puntos de vida pierden).
+
+Este será un Programa Orientado a Objetos (POO), por lo que deberás crear una clase Player (Jugador) e instanciar dos objetos de esa clase: uno para el superhéroe y otro para el villano. Algunos atributos de instancia de la clase incluyen:
+
+Puntos de vida (life points)
+
+Fuerza (strength)
+
+Generador de números aleatorios
+
+__init__: Un constructor por defecto para establecer los puntos de vida y la fuerza.
+
+Los comportamientos (métodos) podrían incluir:
+
+Establecer fuerza (setStrength)
+
+Recibir daño (receiveDamage)
+
+Necesitarás acceder a:
+
+Fuerza
+
+Puntos de vida
+
+*Entrega tu archivo .py y una captura de pantalla del programa funcionando.
+El programa utiliza programación orientada a objetos creando una clase Player con atributos de vida y fuerza.
+ En cada turno, ambos jugadores generan una fuerza aleatoria, se comparan, y el que pierde recibe daño basado en la diferencia de fuerza.
+ El juego continúa hasta que uno pierde todos sus puntos de vida o el usuario decide salir.
+
+import random
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.life_points = 100
+        self.strength = 0
+
+    def setStrength(self):
+        self.strength = random.randint(1, 20)
+
+    def receiveDamage(self, damage):
+        self.life_points -= damage
+        if self.life_points < 0:
+            self.life_points = 0
+
+
+def main():
+    hero = Player("Spidey")
+    villain = Player("Doc Oct")
+
+    while hero.life_points > 0 and villain.life_points > 0:
+        print("\nPuntos de vida de", hero.name + ":", hero.life_points)
+        print("Puntos de vida de", villain.name + ":", villain.life_points)
+
+        choice = input("\nPresiona 'h' para luchar o 'q' para salir: ")
+
+        if choice == "q":
+            print("\n¡Gracias por jugar!")
+            break
+
+        if choice == "h":
+            hero.setStrength()
+            villain.setStrength()
+
+            print("\nFuerza de", hero.name + ":", hero.strength)
+            print("Fuerza de", villain.name + ":", villain.strength)
+
+            if hero.strength > villain.strength:
+                damage = hero.strength - villain.strength
+                villain.receiveDamage(damage)
+                print(villain.name, "recibe", damage, "puntos de daño.")
+            elif villain.strength > hero.strength:
+                damage = villain.strength - hero.strength
+                hero.receiveDamage(damage)
+                print(hero.name, "recibe", damage, "puntos de daño.")
+            else:
+                print("Empate. Nadie recibe daño.")
+
+    if hero.life_points == 0:
+        print("\n¡" + villain.name + " gana la batalla!")
+    elif villain.life_points == 0:
+        print("\n¡" + hero.name + " gana la batalla!")
+
+
+if __name__ == "__main__":
+    main()
+
+"""
+Lógica del juego
+
+Primero se crean dos jugadores, el héroe y el villano. Cada uno empieza con 100 puntos de vida y fuerza 0. Cuando el usuario presiona 'h', ambos jugadores generan una fuerza aleatoria entre 1 y 20. 
+Luego se comparan las fuerzas. El que tenga la fuerza más baja pierde puntos de vida según la diferencia entre ambas fuerzas. Si ambos tienen la misma fuerza, nadie recibe daño. El juego termina cuando uno llega a 0 puntos de vida o cuando el usuario escribe 'q'. El programa usa programación orientada a objetos con una clase Player. Cada jugador tiene nombre, puntos de vida y fuerza. El método setStrength() genera una fuerza aleatoria y receiveDamage() resta puntos de vida.
+ En cada ronda se comparan las fuerzas, y el jugador con menor fuerza recibe daño. El juego termina cuando uno se queda sin vida o el usuario sale.
+"""
+

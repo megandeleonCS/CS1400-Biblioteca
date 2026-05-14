@@ -86,3 +86,13 @@ print("Nueva Hora (función):", nueva_hora)
 
 mi_hora.incrementar_tiempo(1, 45, 30)
 print("Hora incrementada (método):", mi_hora)
+
+#Mi propia clase
+#Funcion de despedida
+def despedida(nombre):
+    # Escribe tu código aquí
+    print(f"Adiós, {nombre}!")
+
+# Prueba de la función
+despedida("Megan")
+despedida("Ana")

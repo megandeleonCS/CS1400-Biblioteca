@@ -1,0 +1,197 @@
+
+
+Toda la tarea se puede ver aqui
+https://github.com/Figueresgirl/CS1400-Biblioteca/tree/main/M13
+
+
+
+Juego de Dados con Múltiples Objetos
+Lo siguiente demostrará el uso de múltiples objetos utilizando un Juego de Dados. Este es un juego simple donde se lanzan dos dados y el jugador con el resultado más alto obtiene un punto. El código del juego se encuentra abajo. Nota: el programa fallará en este punto si intentas ejecutarlo.
+
+Mira la clase Player y realiza las siguientes observaciones:
+
+1.Localiza el init. Añade un comentario encima etiquetándolo como el método init.
+RESPUESTA: #metodo init
+
+2.Falta un método de instancia llamado roll. Añade este método. Debe lanzar dos dados y sumarlos para establecer la variable de clase totalRoll.
+RESPUESTA: El método roll debe ser:
+
+def roll(self):
+    dado1 = random.randint(1, 6)
+    dado2 = random.randint(1, 6)
+    self.totalRoll = dado1 + dado2
+
+3. El programa compila y se ejecuta en este punto. Sin embargo, no sumará puntos al marcador. Actualiza el método para añadir 1 a la variable de clase score. Asegúrate de usar self.score en lugar de crear una variable local llamada score.
+RESPUESTA: Podria ser que el método este mal escrito y no este modificando la variable correctamente
+El método debe actualizar la variable de instancia score utilizando self.score += 1. Si se usa score sin self, se crea una variable local que no afecta al marcador del jugador, por lo que la puntuación no se incrementa. (self es relativo a un objeto pero se le debe otorgar un atributo que en este caso es score)
+
+4. Localiza el método str, ¿qué hará este método?  
+
+RESPUESTA: El método __str__ define cómo se muestra un objeto cuando se imprime con print().
+
+5. ¿Se están actualizando todas las variables de instancia?
+RESPUESTA: Sí, pero solo si los métodos están correctamente implementados.
+
+Mira la clase principal (main) y realiza las siguientes observaciones:
+
+1. ¿Cuáles son los nombres de las dos instancias de la clase Player?
+RESPUESTA:Los nombres de las dos instancias de la clase Player son player1 y player2.
+
+2. ¿Qué sucede cuando se elige "quit" (salir)?
+RESPUESTA: El programa sale del bucle principal (while)la condicion se vuelve falsa, el juego termina porqur ya no existen mas opciones de lanzar mas dados.
+
+3.¿Qué código permite al jugador lanzar los dados?
+RESPUESTA: player1.roll() y player2.roll()
+
+4. ¿Qué variable se utiliza para imprimir los resultados?
+RESPUESTA: totalRoll
+
+5.¿Qué método se llama para aumentar la puntuación dentro de las sentencias if?
+RESPUESTA: addToScore() . Este metodo incrementa en 1 la variable de instancia score del jugador utilizando self.score, permitiendo llevar el conteo de puntos durante el juego.
+
+6. ¿Qué método se llama cuando se imprimen player1 y player2?
+RESPUESTA: Cuando se imprime un objeto, Python llama automáticamente al método __str__(), el cual devuelve una representación en texto del objeto
+
+
+El juego actualmente no indica quién gana:
+
+Añade sentencias if/elif después del bucle para determinar quién gana.
+Quien tenga la puntuación (score) más alta, gana.
+Añade sentencias print indicando si el usuario gana o pierde
+
+import random
+
+class Player:
+    # Método init
+    def __init__(self):
+        self.score = 0
+        self.totalRoll = 0
+
+    # Método para lanzar los dados
+    def roll(self):
+        dado1 = random.randint(1, 6)
+        dado2 = random.randint(1, 6)
+        self.totalRoll = dado1 + dado2
+
+    def __str__(self):
+        return "Score: " + str(self.score)
+
+    # Método para sumar puntos
+    def addToScore(self):
+        self.score += 1
+
+
+def main():
+    player1 = Player()
+    player2 = Player()
+
+    choice = ""
+
+    while choice != "quit":
+        choice = input("Presiona ENTER para lanzar los dados o escribe 'quit': ")
+
+        if choice == "quit":
+            break
+
+        player1.roll()
+        player2.roll()
+
+        print("Player 1 lanzó:", player1.totalRoll)
+        print("Player 2 lanzó:", player2.totalRoll)
+
+        if player1.totalRoll > player2.totalRoll:
+            player1.addToScore()
+            print("Player 1 gana la ronda")
+        elif player2.totalRoll > player1.totalRoll:
+            player2.addToScore()
+            print("Player 2 gana la ronda")
+        else:
+            print("Empate")
+
+        print("Player 1:", player1)
+        print("Player 2:", player2)
+        print()
+
+    # Determinar ganador final
+    if player1.score > player2.score:
+        print("Player 1 gana el juego")
+        print("El usuario gana")
+    elif player2.score > player1.score:
+        print("Player 2 gana el juego")
+        print("El usuario pierde")
+    else:
+        print("El juego terminó en empate")
+
+
+if __name__ == "__main__":
+    main()
+    
+Conclusion
+Este programa simula un juego de dados entre dos jugadores usando programación orientada a objetos. 
+La clase Player almacena la puntuación y el resultado de cada lanzamiento. 
+El método roll() genera dos números aleatorios entre 1 y 6 y guarda su suma, addToScore() incrementa la puntuación del jugador, y __str__() permite mostrar la puntuación de manera legible.
+ En la función main(), se crean dos jugadores, se ejecutan rondas hasta que el usuario escribe "quit", y al final se determina quién ganó según la puntuación más alta.
+
+Examina el siguiente código:
+1. ¿Cuál es el nombre de la clase utilizada en la siguiente sección principal?
+RESPUESTA: BaseballPlayer
+
+2. ¿Qué variables se establecen en el método init?
+RESPUESTA: Las variables son name, number y batting_avg.
+
+3. ¿Qué dos métodos de instancia hay en la clase BaseballPlayer?
+RESPUESTA: print_info() y calculate_batting_avg().
+
+4. Añade otra instancia para un segundo jugador.
+RESPUESTA: Añade otra instancia para un segundo jugador.
+player2 = BaseballPlayer()
+player2.name = "Thais"
+player2.number = 15
+player2.batting_avg = 0.0
+
+5. Añade el código necesario para utilizar el método calculate_batting_avg e imprimir el promedio del jugador 1.
+PEGA EL CÓDIGO ACTUALIZADO AQUÍ
+class BaseballPlayer:
+    def __init__(self):
+        self.name = "none"
+        self.number = "none"
+        self.batting_avg = 0.0
+
+    def print_info(self):
+        print("Nombre: " + self.name)
+        print("Número: " + str(self.number))
+        print("Promedio de bateo: " + str(self.batting_avg))
+
+    # Método para calcular el promedio de bateo
+    def calculate_batting_avg(self, hits, at_bats):
+        if at_bats > 0:
+            self.batting_avg = hits / at_bats
+        else:
+            self.batting_avg = 0.0
+
+def main():
+    # Jugador 1
+    player1 = BaseballPlayer()
+    player1.name = "Juan"
+    player1.number = 10
+
+    # Jugador 2 (segunda instancia)
+    player2 = BaseballPlayer()
+    player2.name = "Thais"
+    player2.number = 25
+
+    # Calcular promedio del jugador 1
+    player1.calculate_batting_avg(30, 100)
+
+    # Imprimir promedio del jugador 1
+    print("Promedio de bateo del jugador 1:", player1.batting_avg)
+
+    print("\nInformación completa del jugador 1:")
+    player1.print_info()
+
+    print("\nInformación del jugador 2:")
+    player2.print_info()
+
+
+if __name__ == "__main__":
+    main()
