@@ -1,0 +1,242 @@
+#Listas (Lists)
+#Agregar, reemplazar y eliminar elementos de un arreglo
+
+#1.Observe el segmento de código a continuación y luego responda las preguntas. Hay varios métodos que le permiten modificar un arreglo, #incluyendo insert, append, remove, pop y clear. Escriba el comando junto a la definición correcta.
+
+#¿Qué comando elimina todos los elementos de la lista? 
+#RESPUESTA: clear()
+
+#¿Qué comando elimina un elemento de la lista por su valor de índice? 
+#RESPUESTA: pop()
+
+#¿Qué comando elimina un elemento de la lista usando el valor del elemento? 
+#RESPUESTA: remove()
+
+#¿Qué función agrega un elemento al final de la lista? 
+#RESPUESTA: append()
+
+#¿Qué función agrega un elemento en una ubicación específica? 
+#RESPUESTA: insert()
+
+#2. Jugadores del equipo
+
+playerNames = ["Adam", "Bethanie", "Carrie", "Doug", "Eddie"]
+playerNumbers = [5, 2, 6, 13, 0]
+
+#Observe el segmento de código a continuación. Los dos arreglos son para almacenar el nombre de un jugador y su número de camiseta para un #equipo. ¿Cuántos jugadores hay en el equipo? 
+#RESPUESTA: 5
+
+#Acabamos de recibir la noticia de que Adam ha dejado el equipo. Usando el comando remove(), elimine a Adam de la lista. Usando el comando pop(), elimine el primer número de la lista. 
+#ACTUALIZAR CÓDIGO
+playerNames = ["Bethanie", "Carrie", "Doug", "Eddie"]
+playerNumbers = [2, 6, 13, 0]
+
+name = input("Ingrese el nombre del jugador: ")
+num = int(input("Ingrese el número de camiseta del jugador: "))
+
+playerNames.append(name)
+playerNumbers.append(num)
+
+# Si quieres ver el resultado AL FINAL, deja estos prints aquí:
+print(", ".join(playerNames))
+print(", ".join(str(n) for n in playerNumbers))
+
+
+#3.Observe las sentencias de entrada (input). Elimine los comentarios para que el compilador los ejecute. Estos sirven para agregar un jugador al equipo. Use el comando append para #actualizar playerNames y playerNumbers con el nuevo jugador. 
+#ACTUALIZAR CÓDIGO
+#El entrenador tiene a su hija en el equipo. Su nombre es Raven y su número de camiseta es 1. El entrenador quiere que su hija sea la primera persona en la lista. Use el comando insert para agregar a Raven y su número de camiseta a las listas correctas. 
+#Escriba el código para agregar (append) la variable name a la lista playerNames
+#Escriba el código para agregar (append) la variable score a la lista playerNumbers
+
+# Se guardan las copias temporales
+tempNames = playerNames.copy()
+tempNumbers = playerNumbers.copy()
+
+# se vacian las listas originales
+playerNames.clear()
+playerNumbers.clear()
+
+# Se agrega primero a Raven
+playerNames.append("Raven")
+playerNumbers.append(1)
+
+# Se agregan de nuevo a los demás jugadores
+for i in range(len(tempNames)):
+    playerNames.append(tempNames[i])
+    playerNumbers.append(tempNumbers[i])
+
+print(", ".join(playerNames))
+print(", ".join(str(n) for n in playerNumbers))
+
+#Resultado
+#"Raven", "Adam", "Bethanie", "Carrie", "Doug", "Eddie"
+#1, 5, 2, 6, 13, 0
+
+#3. Iteración y Análisis (Iterating and Parsing)
+#Ejecute el programa e ingrese sus comidas favoritas separadas por una coma, como: Pizza, Tacos, Tamales, Churros, Taquitos. 
+
+#ACTUALIZAR CÓDIGO
+#Pizza, Tacos, Tamales, Churros, Taquitos
+
+
+#Ejecute el programa e ingrese sus comidas favoritas separadas por una coma, como: Pizza, Tacos, Tamales, Churros, Taquitos. 
+#ACTUALIZAR CÓDIGO
+#se imprime el numero 3 
+
+
+#Ejecute el programa de nuevo, esta vez ingrese sus comidas favoritas separadas por un espacio, como... Pizza Tacos Tamales Churros Taquitos. 
+
+#Pizza Tacos Tamales Churros Taquitos
+#ACTUALIZAR CÓDIGO
+
+#¿Funcionó el programa de la misma manera? ¿Por qué sí o por qué no? 
+#RESPUESTA: no funciona porque porque split(",") solo divide cuando encuentra comas. Si el usuario usa espacios, el texto no se divide correctamente.
+
+#Observe el comando de entrada (input). Al final hay una función split. ¿Cuál es el propósito de la coma? 
+#RESPUESTA: La coma en split(",") indica el carácter separador que Python debe usar para dividir el texto.
+#Es decir, le dice al programa que cada vez que encuentre una coma, debe cortar el texto y convertirlo en un nuevo elemento dentro de la lista.
+
+#Hay dos formas de iterar una lista. Puede iterar por valor o iterar usando una posición de índice. ¿Cuál se utiliza en el bucle for para imprimir las comidas favoritas? 
+#RESPUESTA:iteración por valor.
+#utilizando un bucle:
+
+#for i in food:
+
+#Eso significa que el programa toma cada comida directamente de la lista y la imprime. Toma cada elemento uno por uno es lo que significa iterar por valor
+#La ventaja de iterar por valor es lo simple que es usar el bucle; no necesita un inicio, fin y paso como lo hace con el valor del índice. La desventaja es que no tiene acceso a los #valores siguientes o anteriores en la lista, solo al actual. Escriba un bucle de posición de índice para imprimir los alimentos en orden inverso. 
+#Escriba un bucle para iterar hacia atrás a través de la lista
+# Bucle por índice en orden inverso
+#ACTUALIZAR CÓDIGO
+
+food = input("Ingrese sus 5 comidas favoritas separadas por una coma: ").split(",")
+
+print("Tu primera comida favorita es", food[0])
+
+print("Hacia adelante")
+for i in food:
+    print(i)
+
+print("Orden inverso")
+for i in range(len(food) - 1, -1, -1):
+    print(food[i])
+
+
+#4.Contadores e Iteradores (Counters and Iterators)
+#Practique el uso de arreglos completando los siguientes desafíos:
+
+#Observe la función llamada Generate_Numbers(). ¿Qué está agregando al arreglo numbers? 
+
+def Generate_Numbers():
+    numbers = []
+    for i in range(20):
+        num = random.randint(1, 50)
+        numbers.append(num)
+    return numbers
+
+mis_numeros = Generate_Numbers()
+#Que tipos de datos esta agreagando?
+#RESPUESTA:
+#Está agregando números enteros.
+
+#¿Cuántos números se están agregando a la lista? 
+#RESPUESTA: 20 números del 0 al 19
+
+#¿Qué devuelve (return) la función? 
+#RESPUESTA: Devuelve la lista numbers
+
+#Observe la función llamada Even_Numbers. 
+#¿Cuál es el nombre del parámetro del arreglo? (mire dentro del paréntesis) 
+#RESPUESTA: numbersdentro de un arreglo vacio
+
+#Se está declarando un arreglo vacío, ¿cuál es el nombre del arreglo? 
+#RESPUESTA: even
+
+#Observe el comentario TODO. Ahora completará esta función. Itere a través del arreglo numbers. Mientras itera, use una sentencia if para determinar si el valor es par. Si lo es, agréguelo #al arreglo even. 
+
+#ACTUALIZAR CÓDIGO
+def Even_Numbers(numbers):
+    even = []
+
+    for num in numbers:
+        if num % 2 == 0:
+            even.append(num)
+
+    return even
+
+#Escriba una función llamada Ten_Or_Less(). Esta función encontrará los números en el arreglo que tengan un valor de 10 o menos. Utilizará el arreglo numbers como parámetro, al igual que #en la función Even_Numbers(). Cree un arreglo vacío. Recorra la lista de números y encuentre valores menores a 10. Agregue solo esos valores al arreglo vacío. Devuelva el arreglo y #muestre los valores debajo. 
+#ACTUALIZAR CÓDIGO
+def Ten_Or_Less(numbers):
+    result = []
+
+    for num in numbers:
+        if num <= 10:
+            result.append(num)
+
+    return result
+
+nums = [3, 15, 8, 22, 10, 1]
+
+resultado = Ten_Or_Less(nums)
+
+print("Números menores o iguales a 10:", resultado)
+
+#Escriba una función para devolver un arreglo que calcule la diferencia entre cada uno de los números en el arreglo numbers. Por ejemplo, si la lista fuera [3, 1, 8, 13] imprimiría 2, 7, #5, ya que esas son las distancias entre cada uno de los números. 
+#ACTUALIZAR CÓDIGO
+
+def Differences(numbers):
+    differences = []
+
+    for i in range(len(numbers) - 1):
+        differences.append(abs(numbers[i] - numbers[i + 1]))
+
+    return differences
+
+print("Números menores o iguales a 10:", ", ".join(str(n) for n in resultado))
+
+#5. Listas 2D (2D Lists)
+#Observe la variable tictactow.
+
+#¿Cuántos grupos de listas están presentes? 
+#RESPUESTA: 3 (son 3 filas: una lista por fila).
+
+#RESPUESTA: "o" en la esquina izquierda superior antes de jugar
+
+#Ejecute el programa. Ingrese 0 para la fila y 0 para la columna. ¿Apareció una X en la esquina superior izquierda en lugar de una O? 
+#RESPUESTA: si
+
+#Dentro de esta misma ejecución, intentaremos ganar colocando una X en la esquina inferior derecha. ¿Qué números tendría que ingresar para la fila y la columna para que la X se ubique #allí? 
+#RESPUESTA: Fila 2 y columna 2
+
+#Examine el bucle while. ¿Qué tendrá que escribir para salir del programa? 
+#RESPUESTA: n
+
+#Observe el bucle for. ¿Qué lista está iterando? 
+#RESPUESTA: tictactow
+
+#Observe el bucle for interno. ¿Qué lista está iterando? 
+#RESPUESTA: La fila actual (cada sublista dentro de tictactow).
+
+#¿Qué se está imprimiendo en el bucle interno? 
+#RESPUESTA: Cada elemento de la fila (las "O" o "X"). 
+
+#¿Por qué cree que hay una sentencia print() adicional en el bucle for externo? 
+#RESPUESTA: Para hacer un salto de línea y que el tablero se vea en filas
+
+#La sentencia if se ejecuta cuando el usuario quiere seguir jugando. Agregue una sentencia if adicional allí para determinar si cada una de las posiciones de la fila superior es igual a #una "X", luego imprima ("Ganaste"). 
+#ACTUALIZAR CÓDIGO
+
+tictactow = [
+    ["X", "X", "X"],
+    ["O", " ", "O"],
+    [" ", " ", " "]
+]
+
+# Mostrar tablero
+print("Tablero:")
+for fila in tictactow:
+    print(" | ".join(fila))
+    print("-" * 9)
+
+# Verificar si la primera fila tiene 3 X
+if tictactow[0] == ["X", "X", "X"]:
+    print("Ganaste")

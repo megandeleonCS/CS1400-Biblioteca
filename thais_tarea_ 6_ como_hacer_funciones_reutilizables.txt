@@ -1,0 +1,89 @@
+Cómo Hacer Funciones Reutilizables
+Escribir una función que "funcione" es fácil; escribir una función que sea reutilizable es lo que distingue a un programador profesional. Una función reutilizable es como una pieza de LEGO: puede encajar en cualquier lugar de tu programa sin necesidad de modificarla por dentro.
+
+Código de Referencia
+Python - Ejemplo de Reutilización
+import math
+
+# EJEMPLO A: Función con usos limitados
+def Area_Limitada():
+    radio = int(input("Ingrese el radio: "))
+    area = math.pi * math.pow(radio, 2)
+    print(f"El área es: {area}")
+
+# EJEMPLO B: Función altamente reutilizable
+def Area_Reusable(radius):
+    area = math.pi * math.pow(radius, 2)
+    return area
+
+# --- PRUEBAS DE EJECUCIÓN ---
+
+# Prueba 1: Llamada a la Función Limitada
+print("--- Ejecutando Función Limitada ---")
+Area_Limitada()
+
+# Prueba 2: Llamada a la Función Reutilizable
+print("\n--- Ejecutando Función Reutilizable ---")
+r = int(input("Ingrese el radio para la versión reusable: "))
+resultado = Area_Reusable(r)
+print(f"Resultado guardado en variable: {resultado}")
+
+# Prueba 3: Uso en estructuras de datos (Arreglos)
+radios = [5, 20, 50, 75]
+suma_total = 0
+for r in radios:
+    suma_total += Area_Reusable(r)
+
+print(f"\nLa suma de todas las áreas es: {round(suma_total, 2)}")
+Análisis del Código
+
+Fase 1: Identificación Básica
+
+1. Sintaxis: ¿Qué palabra clave (keyword) de Python se utiliza para indicar que estamos definiendo una función? 
+def
+
+2. Nombres: Escribe los nombres de las dos funciones definidas en el código. 
+Area_Limitada() y Area_Reusable()
+
+3. Objetivo: Ambas funciones realizan el mismo cálculo matemático. ¿Cuál es ese cálculo? 
+Calcular el área de un círculo: área = π x radio²
+
+Fase 2: Análisis de Diseño (Input/Output)
+4. Entrada de datos: En la función Area_Limitada(), el dato se obtiene mediante un input() interno. 
+¿Cómo recibe el dato la función Area_Reusable(radius)? 
+Recibe el dato como un parametro, que en Python es la variable que se declara para definer como se va a operar en una function.
+
+5. Salida de datos: Una función usa print() y la otra usa return. ¿Cuál es la diferencia fundamental para el resto del programa entre imprimir un valor y devolverlo?
+Print muestra el valor en el terminal, mientras que return devuelve el valor para seguir utilizandolo en calculos posteriores
+ 
+Fase 3: Flexibilidad y Formato
+6. El reto de los decimales: Queremos mostrar el área con solo 2 decimales.
+¿Podrías hacer esto con Area_Limitada() sin modificar su código interno? ¿Por qué?
+No porque no devuelve el valor para seguir utilizandolo.
+
+¿Cómo lo harías usando Area_Reusable() desde el programa principal?
+denominando a la variable Area_Reusable(), 
+resultado = Area_Reusable(r)
+print(round(resultado, 2))
+
+7. Destino de los datos: Si necesitaras guardar el resultado en un archivo en lugar de la pantalla:
+¿Cuál función te obligaría a reescribir su código interno?
+Area_Limitada()
+
+¿Cuál te permitiría simplemente enviar el resultado a otro lugar?
+Area_Reusable() porque devuelve el valor numerico y usarla en un for, sumar resultados o procesar listas
+
+Fase 4: Aplicación Avanzada
+8. Procesamiento en lote: Observa la "Prueba 3" (el ciclo for).
+¿Por qué es imposible usar Area_Limitada() para sumar las áreas en el ciclo?
+porque pide input() cada vez no devuelve ningun numero que se pueda guardar para continuar los calculos.
+
+¿Qué ventaja técnica ofrece Area_Reusable() aquí?
+9. Veredicto Final: Define qué significa que una función sea "Reusable" y por qué es una mala práctica poner input() o print() dentro de funciones de cálculo. 
+Reusable significa que la function se puede utilizar de diferentes maneras y en varios escenarios porque recibe datos por parametros (declaracion de variables) 
+y devuelve (return) datos por cada nuevo parámetro que se asigna sin depender de un input.
+Por tal motive es una mala practica incluir input o print en las funciones de tipo reusable porque no se puedan automatizar.
+
+
+
+

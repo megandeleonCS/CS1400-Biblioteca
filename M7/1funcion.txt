@@ -28,15 +28,17 @@ def lanzar_dado():
       int: Un número entero aleatorio entre 1 y 6.
     """
     # TODO: Paso 2. Genera un número aleatorio entre 1 y 6.
-    #Guardalo en una variable llamada 'resultado'.
-    #random.randint(1, 6) devuelve un entero incluyendo 1 y 6 (ambos inclusive),
-    resultado = random.randint(1, 6)
+resultado = random.randint(1, 6)
 
+    #Guardalo en una variable llamada 'resultado'.
+ return resultado
+ 
     # TODO: Paso 3. Devuelve el resultado.
- # Reemplaza esto con la variable que contiene el resultadoreturn resultado
-    return resultado
+    return  # Reemplaza esto con la variable que contiene el resultado
+
 
 # --- Bloque para probar tu función ---
+
 # Este código es para que pruebes tu función.
 if __name__ == "__main__":
     print("Lanzando el dado 5 veces:")
@@ -45,3 +47,23 @@ if __name__ == "__main__":
     for i in range(5):
         resultado_lanzamiento = lanzar_dado()
         print(f"Lanzamiento {i + 1}: {resultado_lanzamiento}")
+
+Razonamiento:
+Importamos el módulo random porque es el que nos permite generar números aleatorios.
+Lanzando el dado 5 veces:
+Lanzamiento 1: 3
+Lanzamiento 2: 6
+Lanzamiento 3: 1
+Lanzamiento 4: 4
+Lanzamiento 5: 2
+Los números cambiarán cada vez porque son aleatorios.
+randint es una función del módulo random que sirve para generar un número entero aleatorio dentro de un rango.
+
+Se escribe así:
+
+random.randint(inicio, fin)
+
+
+Y significa:
+
+“Dame un número entero al azar entre inicio y fin, incluyendo ambos”.

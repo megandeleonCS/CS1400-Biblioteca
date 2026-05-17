@@ -1,0 +1,169 @@
+Entrada y Salida de Archivos en Python
+Parte 1: Persistencia de Datos
+
+1. ¿Cuál es el objeto de Python que te permite crear un archivo?
+
+La funciónopen()
+
+Ejemplo:
+
+abrir ( "archivo.txt" , "x" )
+
+"x"crea el archivo
+
+"w"También puedes crearlo si no existe.
+
+2. ¿Cómo se llama el archivo .txt que se crea en este programa?
+
+El archivo se llama:roster.txt
+
+Aparece en el código:
+
+abrir ( "roster.txt" , "x" )
+
+3. ¿Qué pasará si ese archivo .txt no existe?
+
+Se ejecuta el bloque:
+
+excepto FileNotFoundError : 
+
+Y ocurre esto:
+
+print ( 'Creando archivo para la lista.' ) 
+open ( "roster.txt" , "x" )
+
+Resultado:
+
+Se crea el archivo automáticamente
+
+4. ¿Qué objeto de Python se utiliza para leer el arco?
+
+El objeto archivo
+
+Se crea aquí:
+
+archivoRoster = abrir ( 'roster.txt' , 'r' )  
+
+"r"significa modo lectura
+
+5. ¿Cuál es el propósito del bucle mientras al leer el archivo?
+
+En realidad es este bucle el que lee el archivo:
+
+para línea en archivoRoster :   
+
+Propósito:
+
+Leer cada línea del archivo
+
+Procesar los datos uno por uno
+
+6. ¿Qué sucede con los datos a medida que se leen del archivo?
+
+Se agregan a la lista roster:
+
+lista.append ( línea.strip ( ) )
+
+strip()elimina saltos de línea
+
+los datos se guardan en la lista
+
+7. ¿Qué excepciones están siendo manejadas por el try except?
+
+Se manejan tres:
+
+FileNotFoundError
+
+cuando el archivo no existe
+
+ValueError
+
+cuando el usuario escribe algo que no es número
+
+except:(general)
+
+capturar cualquier otro error (por ejemplo al eliminar o escribir)
+
+8. ¿Qué representa la variable n?
+
+Representa cada elemento de la listaroster
+
+para n en la lista :   
+
+n= un nombre en la lista
+
+9. ¿Qué debe hacerse siempre con un archivo después de terminar de acceder a él?
+
+Se debe cerrar el archivo con:
+
+archivoRoster.close ( )
+
+Razón:
+
+liberar recursos
+
+evitar errores
+
+guardar correctamente los cambios
+
+Parte 2: Suma de Números
+
+10. ¿Cuál es el resultado de la suma de los números proporcionados?
+
+Números:
+
+0 + 1 + 12 + 35 + 8 + 13 + 21 + 34 + 55 = 179
+
+11. Si agregas la palabra "Python" al archivo de texto, ¿qué error muestra el programa?
+
+ValueError: invalid literal for int()
+Razón:
+Python no se puede convertir a número con `int()`
+
+12. ¿Por qué es necesario usar `.strip()` antes de convertirla a número?
+Porque cada línea del archivo tiene un salto de línea (`\n`)
+Ejemplo:
+"12\n"
+".strip()  ":
+elimina espacios y saltos de línea
+deja solo el número limpio
+
+Sin `.strip()`:
+
+puede causar errores o resultados incorrectos
+
+13. Si el archivo tiene 9 números, ¿cuántas veces se ejecuta el bloque dentro del for?
+
+9 veces
+
+Razón:
+
+el "for" se ejecuta una vez por cada línea del archivo
+
+
+Parte 3: JSON
+
+14. ¿Qué hace la función "json.dump()"?
+
+Guarda un diccionario de Python en un archivo JSON
+
+Ejemplo:
+
+json.dump(usuario, f, indent=4)
+
+Hace:
+convierte el diccionario a formato JSON
+ lo escribe en el archivo
+
+15. ¿Cuál es la ventaja de usar `with open(...)` en lugar de `.close()`?
+Cierra el archivo automáticamente
+
+Ejemplo:
+with open('datos.json', 'r') as f:
+
+Ventajas:
+
+1. no tienes que usar `.close()`
+2. evita errores si el programa falla
+3. es más seguro y limpio
+
