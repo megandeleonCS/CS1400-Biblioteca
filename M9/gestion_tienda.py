@@ -41,4 +41,32 @@ def listar_productos(inventario):
     else:
         print("\n--- Inventario Actual ---")
         for producto, precio in inventario.items():
-            print(f"• {producto}: ${precio:.2f}")
+          print(f"• {producto}: ${precio:.2f}")
+
+#Ejercicio
+def main():
+    #creamos el inventario como un diccionario vacío
+    inventario = {}
+
+    #ejemplo de agregar productos
+    print("agregando productos...")
+    agregar_producto(inventario, "Manzanas", 1.50)
+    agregar_producto(inventario, "Pan", 2.00)
+
+    #intento de agregar algo con precio inválido
+    if not agregar_producto(inventario, "Leche", "dos"):
+        print("Error: El precio debe ser un número.")
+
+    #Listar los productos
+    listar_productos(inventario)
+
+    #buscar un precio
+    producto_a_buscar = "Pan"
+    precio = buscar_precio(inventario, producto_a_buscar)
+    if precio is not None:
+        print(f"\nEl precio de {producto_a_buscar} es: ${precio:.2f}")
+    else:
+        print(f"\n{producto_a_buscar} no se encuentra en el inventario.")
+
+if __name__ == "__main__":
+    main()

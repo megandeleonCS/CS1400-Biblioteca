@@ -3,8 +3,8 @@ Punto de entrada para la aplicación Weather Wizard.
 Este archivo coordina la interfaz de usuario con el motor de lógica.
 """
 import sys
-from weather_wizard.motor import obtener_clima_ciudad
-from weather_wizard.utils import formatear_respuesta
+from motor import obtener_clima_ciudad
+from utils import formatear_respuesta
 
 def main():
     """Función que organiza el flujo de ejecución."""

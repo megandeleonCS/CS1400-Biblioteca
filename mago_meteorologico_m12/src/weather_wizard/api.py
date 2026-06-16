@@ -4,10 +4,13 @@ Este archivo se encarga de conectar con servidores de clima reales.
 """
 
 import requests
+import os 
+from dotenv import load_dotenv
 
 # En un entorno profesional, esto vendría de un archivo .env
+load_dotenv()
 BASE_URL = "https://api.weatherapi.com/v1/current.json"
-API_KEY = "tu_llave_aqui"  # Solo para propósitos educativos
+API_KEY = os.getenv("WEATHER_API_KEY")  # Solo para propósitos educativos
 
 def fetch_weather_from_provider(city_name: str) -> dict:
     """
