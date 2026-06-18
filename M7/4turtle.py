@@ -10,6 +10,10 @@
 
 # Importaciones necesarias
 import math
+
+import turtle
+turtle.speed(0)  # Aumenta la velocidad de dibujo   
+
 #from turtle import make_turtle, forward, left, right, penup, pendown
 import turtle
 
@@ -36,6 +40,7 @@ def triangulo(longitud, angulo):
     # --------------------------------
     
     # Convierte el ángulo a radianes para poder usar funciones trigonométricas.
+    
     angulo_rad = math.radians(angulo)
     
     # TODO:
@@ -43,12 +48,14 @@ def triangulo(longitud, angulo):
     # Pista: estás trabajando con dos lados iguales (longitud)
     # y el ángulo central entre ellos.
     # Puedes usar math.sin().
-    base =  # Escribe aquí el cálculo
+
+    base = 2 * longitud * math.sin(angulo_rad / 2) 
     
     # TODO:
     # Calcula el ángulo que debe girar la tortuga en las esquinas
     # para que el triángulo se cierre correctamente.
-    angulo_giro =  # Escribe aquí el cálculo
+
+    angulo_esquina = (180 - angulo) / 2  
 
     # --------------------------------
     # Paso 3: Dibujo del triángulo
@@ -62,9 +69,15 @@ def triangulo(longitud, angulo):
     
     # TODO:
     # Escribe aquí los movimientos necesarios.
-    
-    pass  # ⚠️ Borra esta línea cuando completes el código
 
+    turtle.forward(longitud)
+    turtle.left(180 - angulo_esquina)   
+    turtle.forward(base)
+    turtle.left(180 - angulo_esquina)  
+    turtle.forward(longitud)
+    turtle.left(180)  
+    
+    
 
 def dibujar_tarta(n_porciones, longitud):
     """
@@ -83,7 +96,8 @@ def dibujar_tarta(n_porciones, longitud):
     # TODO:
     # Calcula el ángulo central de cada porción.
     # Pista: un círculo completo tiene 360 grados.
-    angulo_porcion =  # Divide 360 entre el número de porciones
+
+    angulo_porcion = 360 / n_porciones 
     
     # --------------------------------
     # Paso 5: Dibujar todas las porciones
@@ -99,15 +113,17 @@ def dibujar_tarta(n_porciones, longitud):
     ###### for _ in range(n_porciones):
         # triangulo(...)
         # turtle.left(...)
-        pass
+    pass
 ########
 
     # for ...:
     #     triangulo(...)
     #     left(...)
     
-    pass  # ⚠️ Borra esta línea cuando completes el código
-
+    for i in range(n_porciones):
+        triangulo(longitud, 360 / n_porciones)
+        turtle.left(360 / n_porciones)
+        
 
 
 # ==================================
@@ -116,15 +132,23 @@ def dibujar_tarta(n_porciones, longitud):
 ####turtle.speed(5) # Ajusta la velocidad (1-10)
 #####turtle.shape("turtle")
 
+
+ventana = turtle.Screen()
+ventana.setup(width=600, height=400)
+
 #make_turtle(height=400, width=600)
+
 
 # ----------------------------------
 # Prueba 1
 # ----------------------------------
 
 print("Dibujando una tarta de 5 porciones...")
+turtle.penup()
+turtle.goto(100, 0)  # Mueve la tortuga a una nueva posición
+turtle.pendown()
+print("Dibujando una tarta de 5 porciones...")
 dibujar_tarta(5, 80)
-
 # ----------------------------------
 # TODO EXTRA
 # ----------------------------------
@@ -135,10 +159,21 @@ dibujar_tarta(5, 80)
 #### turtle.penup()
 #### turtle.goto()
 
+
 # ----------------------------------
 # Prueba 2
 # ----------------------------------
 
 print("Dibujando una tarta de 8 porciones...")
+
+turtle.penup()
+turtle.goto(-150, 0)  # Mueve la tortuga a una nueva posición
+turtle.pendown()
+print ("Dibujando una tarta de 8 porciones...")
+dibujar_tarta(8, 80)
+
+turtle.done()  # Mantiene la ventana abierta hasta que el usuario la cierre
+
 dibujar_tarta(8, 60)
 ####turtle.done()
+

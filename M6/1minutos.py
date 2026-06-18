@@ -7,12 +7,15 @@ basado en una tarifa fija para los primeros 1000 minutos y una tarifa adicional 
 
 # TODO 1: Pedir al usuario cuantos minutos (redondeado al mas cercano entero) ha usado, y asignarlo a una variable.
 
+entrada = input("Ingresa la cantidad de minutos usados: ")
 
 
 # 3. Usar una instrucción if  y isdigit() para verificar si el número es válido
 if not entrada.isdigit():
     print("Error: Ingresa un número válido.")
+    exit()  # Termina el programa si la entrada no es válida
     #TODO #2: Terminar el programa. 
+        
     # Si la entrada no es válida
     # (puedes usar 'return' o 'exit()').
     # El 'return' asume que está en una función o que quiere terminar
@@ -27,8 +30,12 @@ else:
     tarifa_base = 20.00
     # TODO #3: Calcular el costo total con if/else. Si el uso es menos o igual a 1000 son $20.
     # Si el uso es mayor a 1000, entonces se cobra $20 por los primeros 1000 minutos,
-    # y $0.05 por cada minuto extra.
-
+    # y $0.05 por cada minuto extra. 
+    if minutos_usados <= 1000:
+        costo_total = tarifa_base
+    else:
+        minutos_extra = minutos_usados - 1000
+        costo_total = tarifa_base + (minutos_extra * 0.05)
     # Imprimir el total a pagar con un mensaje claro
     # Tomen notas del variable usado. Usamos 'minutos_usados' en lugar de 'minutos'
     # para coincidir con la variable
