@@ -5,6 +5,7 @@ Este programa te ayuda a determinar si un número es un cuadrado perfecto usando
 ##  Objetivos
 
 - Practicar funciones (`def`)
+
 - Usar condicionales (`if`, `else`)
 - Trabajar con entradas (`input`)
 - Realizar pruebas automáticas con listas y `assert`

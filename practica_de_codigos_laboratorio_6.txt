@@ -1,0 +1,106 @@
+Aquí tienes una respuesta completa y corregida, lista para entregar el laboratorio. Mantengo todo simple y claro, como se espera en M6 👇
+# M6 Laboratorio presencial
+# Concatenación de cadenas y uso de entrada del usuario
+
+# TODO Tarea 1: Línea de bienvenida
+print("Bienvenido(a) al programa de entrevista musical ")
+
+# TODO Tarea 2: Solicitar datos del usuario
+nombre = input("Escribe tu nombre: ")
+apellido = input("Escribe tu apellido: ")
+cancion = input("Escribe tu canción favorita: ")
+
+# Validación de entradas vacías
+if not nombre.strip():
+    print("Por favor, escribe tu primer nombre.")
+    exit()
+
+if not apellido.strip():
+    print("Por favor, escribe tu apellido.")
+    exit()
+
+if not cancion.strip():
+    print("Por favor, escribe el nombre de una canción que te guste.")
+    exit()
+
+# Formatear entradas
+nombre = nombre.strip().capitalize()
+apellido = apellido.strip().capitalize()
+cancion = cancion.strip().title()
+
+# TODO Tarea 3: Concatenar nombre completo
+nombre_completo = nombre + " " + apellido
+
+# TODO Tarea 4: Mostrar el resultado
+print("Tu nombre completo es " + nombre_completo)
+
+# TODO Tarea 5: Crear una frase adicional usando concatenación
+mensaje = "Hola " + nombre + ", ¡me encanta que tu canción favorita sea \"" + cancion + "\"! "
+
+# Imprimir a la terminal
+print(mensaje)
+
+Notas importantes para el laboratorio
+
+
+Se usa + para concatenar cadenas
+
+
+Los espacios " " se agregan manualmente
+
+
+.strip() evita errores por espacios vacíos
+
+Perfecto 👍 Aquí tienes una versión MUY simple, pensada para nivel principiante, sin validaciones ni funciones avanzadas. Solo lo esencial para aprender input + concatenación con +.
+
+# M6 Laboratorio presencial
+# Concatenación de cadenas (nivel principiante)
+
+# Bienvenida
+print("Bienvenido(a) al programa de entrevista ")
+
+# Pedir datos
+nombre = input("Escribe tu nombre: ")
+apellido = input("Escribe tu apellido: ")
+cancion = input("Escribe tu canción favorita: ")
+
+# Concatenar nombre completo
+nombre_completo = nombre + " " + apellido
+
+# Mostrar resultados
+print("Tu nombre completo es " + nombre_completo)
+
+# Mensaje final usando concatenación
+print("Hola " + nombre + ", tu canción favorita es " + cancion + ". ¡Buena elección! ")
+
+¿Qué se aprende con este código?
+
+Usar input() para recibir datos
+
+Unir texto con +
+
+Agregar espacios " " manualmente
+
+Mostrar resultados con print()
+
+Ideal para:
+
+Primer laboratorio de Python
+
+Trabajo en parejas
+
+Evaluación rápida en clase
+
+Si quieres, el siguiente paso lógico sería:
+
+🔹 agregar validación básica
+
+🔹 usar .strip() y .capitalize()
+
+🔹 entrevistar a dos personas en el mismo programa
+
+Tú dime y lo adaptamos 👌
+
+
+
+
