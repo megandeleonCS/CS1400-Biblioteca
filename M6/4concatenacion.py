@@ -6,11 +6,14 @@ Incluir espacios manualmente (" "), y combinar entrada del usuario con otros tex
 """
 
 # TODO Tarea 1: Escribe una linea de bienvenida a este programa 
-
+print("bienvenido a este programa")
 
 # TODO Tarea 2: Solicitar datos del usuario. 
 # Usar tres variables: nombre, apellido, y cancion.
 # ## Entrevista algun companero(a) para averiguar su cancion preferida y su nombrecompleto.
+nombre = input("Escribe tu nombre: ")
+apellido = input("Escribe tu apellido: ")
+cancion = input("Escribe tu cancion favorita: ")
 
 # Una manera de validar entradas vacías
 # Toma en cuenta que cambios podrias realizar si tienen un segundo nombre, y/o un segundo apellido.
@@ -35,16 +38,18 @@ cancion = cancion.strip().title()
 
 # TODO Tarea 3: Crear un variable llamado nombre_completo para juntar
 #  (concatenar) todos los nombres ingresados, usando los espacios adecuado.
-
+nombre_completo = nombre + " " + apellido
 
 
 # TODO Tarea 4: Mostrar el resultado con alguna frase como por ejemplo, "Tu nombre completo es  ___ "
-
+print(f"Tu nombre completo es: {nombre_completo}")
 
 
 # TODO Tarea 5: Crear un ultimo variable, y agruegale más texto concatenado.
 # Puede ser un saludo, o un piropo que incluya el variable para la cancion.
 # Por ejemplo, "Hola ___, me encanta que tu cancion favorita sea ___! "
+mensaje = "Hola " + nombre_completo + ", Me encanta que tu cancion favorita sea " + cancion
+print(mensaje)
 
 # Imprimir a la terminal
 
