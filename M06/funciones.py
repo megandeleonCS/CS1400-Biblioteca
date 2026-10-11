@@ -19,7 +19,6 @@
 
 import random
 def lanzar_dado():
-    random.randint(1, 6)
     """
     Simula el lanzamiento de un dado de seis caras.
 
