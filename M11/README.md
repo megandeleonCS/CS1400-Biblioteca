@@ -1,42 +1,25 @@
-M11 - Modularizacion
 
-Revisa todos los archivos incluidos en M11. Completa los pasos 1 - 6 para tener un programa completo. Tu proyecto final, debe tener al menos 3 archivos.
+## Preguntas para familia_madrigal.py
+#1. ¿Qué pasaría si quitas @abstractmethod y creas un Madrigal("Alguien", 30)? Pruébalo y explica qué error aparece y por qué es útil.
 
-### Estructura del Proyecto 
-El código se divide en tres archivos (módulos):
+#2. En Casita.dia_de_milagros() solo se escribe madrigal.usar_don(). ¿Por qué no necesitamos un if para cada personaje? (Pista: polimorfismo).
 
-# utils.py (Utilidades de Procesamiento)
-Este archivo se encarga de la fase de preparación.
+#3. ¿Por qué la energía es __energia y no simplemente energia? Intenta hacer familia[0].energia = 500 y luego familia[0].__energia = 500. ¿Qué diferencia notas?
 
-Función: limpiar_y_tokenizar.
+#4. Si quisieras que todos los Madrigal tuvieran una “casa” (habitación), ¿en qué clase lo agregarías y por qué?
 
-Objetivo: Recibe un texto sucio (con mayúsculas, puntos, comas) y lo convierte en una lista limpia de palabras que el modelo pueda entender.
+## Tareas para programar
+#5. Agrega un nuevo personaje, por ejemplo Abuela Alma, con un don propio (como “proteger a la familia”) y añádelo a la lista familia. Observa que no tienes que cambiar nada en Casita.
 
-# markov.py (El "Cerebro")
-Aquí reside la lógica matemática y algorítmica.
+#6. Modifica Mirabel para que, además, tenga un atributo tiene_gafas = True usando super().__init__(), igual que lo hace Antonio.
 
-Función: construir_modelo y generar_texto.
+#7. Agrega un método esta_cansado() en Madrigal que devuelva True si la energía es menor a 30. Luego haz que dia_de_milagros() salte a quien esté cansado y diga que necesita descansar.
 
-Objetivo: Crea el diccionario de probabilidades (frecuencias de palabras) y contiene el bucle que "elige" la siguiente palabra al azar basándose en la anterior.
+#8. Crea una clase Villano o Visitante que no herede de Madrigal pero tenga también usar_don(). ¿Funciona con dia_de_milagros()? ¿Qué te dice eso sobre cómo funciona Python?
 
-# main.py (Punto de Entrada)
-Es el archivo que orquesta todo.
+#9. Crea una subclase Antonio que, al cumplir la ceremonia, reciba un don y que el método cumplir_anios() aumente la edad en uno. Después haz que Pepa cambie su estado_de_animo según su energía (si baja de 50, se pone “triste”).
 
-Función: ejecutar_demo.
+#10. Haz un pequeño menú con input() donde el usuario elija un personaje y use su don, mostrando cómo baja su energía.
+Un truco para motivar
 
-Objetivo: Importa las herramientas de los otros dos archivos, define el texto de ejemplo y muestra el resultado final al usuario. Es el único archivo que "imprime" resultados en la consola.
-
-### Instrucciones
-Para completar tu tarea, sigue estos pasos:
-
-1. Completa utils.py: Asegúrate de que el texto se transforme correctamente a minúsculas y se eliminen los signos de puntuación.
-
-2. Completa markov_engine.py:
-
-En construir_modelo, asegúrate de que cada palabra se asocie con una lista de sus posibles seguidoras.
-
-En generar_texto, completa el bucle for siguiendo los comentarios TODO. Recuerda usar random.choice().
-
-3. Ejecuta main.py
-
-4. Puntos Extra: Intercambia el text_base en main.py con un párrafo de tu libro favorito y observa cómo cambia el estilo de las frases generadas. 
+Si logras agregar un personaje nuevo sin tocar la clase Casita, ¡ya entendiste el poder del polimorfismo! Esa es justamente la ventaja de la POO: añadir cosas nuevas sin romper lo que ya funciona.
