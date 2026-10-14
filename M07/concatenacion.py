@@ -6,12 +6,16 @@ Incluir espacios manualmente (" "), y combinar entrada del usuario con otros tex
 """
 
 # TODO Tarea 1: Escribe una linea de bienvenida a este programa 
-
+print("Bienvenido")
 
 # TODO Tarea 2: Solicitar datos del usuario. 
 # Usar tres variables: nombre, apellido, y cancion.
 # ## Entrevista algun companero(a) para averiguar su cancion preferida y su nombrecompleto.
-
+nombre = input("ingresa tu nombre\n")
+apellido = input("ingresa tu apellido\n")
+cancion = input("Escribe el nombre de tu canción favorita.\n")
+nombreCompleto = f"nombre completo {nombre} {apellido} y su cancion favorita es:{cancion}."
+print (nombreCompleto)
 # Una manera de validar entradas vacías
 # Toma en cuenta que cambios podrias realizar si tienen un segundo nombre, y/o un segundo apellido.
 # La meta es obtener su nombre completo.
