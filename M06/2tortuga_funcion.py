@@ -79,19 +79,24 @@ dibujar_figura(lados=5, tamaño=60, color_borde="purple", color_relleno="plum")
 mover(150, 0)
 dibujar_figura(lados=6, tamaño=50, color_borde="darkblue", color_relleno="skyblue")
 
+#
+mover(300, 0)
+for i in range(4):
+ t.forward(70)
+ t.left(90)
 
 # ==================================================================
 # 4. PREGUNTAS
 # ==================================================================
 """
 1.  ¿Cuantas funciones hay en este programa? Que proposito tienen? En tus propias palabras agrega comentario completo.
-
+# a duas funcoes 
 2. ¿Qué parámetro de la función 'dibujar_figura' tendrías que cambiar para hacer un octágono (8 lados)?
-
+#Tiene dos funciones: una para definir comandos, como por ejemplo cómo debe actuar, y otra para hacer que se mueva.
 3 ¿En que numero de linea termina la funcion mover?
-
+#linea 63
 4. Bajo la seccion de pruebas, intenta hacer una nueva figura sin el uso de la funcion dibujar_figura.
-
+#Creé un cuadrado usando la función de mover y un bucle FOR para dibujar los lados.
 5. Guarda una captura de pantalla con las 4 figuras en la carpeta M06.
       
 """

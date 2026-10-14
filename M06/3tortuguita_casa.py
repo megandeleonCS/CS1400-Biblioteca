@@ -18,7 +18,7 @@
 # Importaciones necesarias
 # ------------------------------------------
 
-import turtle
+
 # La siguiente linea agrega funciones para realizar la tarea en nuestro programa
 #from turtle import make_turtle, forward, left
 
@@ -30,14 +30,21 @@ import turtle
 # TODO 1
 #  Iniciar ventana y objeto de tortuga y agregar el speed o velocidad. Pista: Mira la Tarea 1turtle.py
 
-# Escribe aquí tu código
-
 # TODO 2
 #  Crea la tortuga usando make_turtle().
 #  La ventana debe tener 400 de alto y 400 de ancho.
-
+import turtle
 # Escribe aquí tu código
+pantalla = turtle.Screen()
+pantalla.setup(400,400)
 
+ 
+t = turtle.Turtle()
+t.shape("turtle")  # Forma de la tortuga puede ser cualquier otro nombre.
+t.speed(3)         # Velocidad del dibujo (1 es lento, 10 es rápido)
+
+ 
+  
 # Captura de Pantalla, nombralo "TUNOMBRE_1_2" y guardalo en la carpeta M06
 
 # ------------------------------------------
@@ -47,9 +54,9 @@ import turtle
 # TODO 3:
 # Mueve la tortuga hacia adelante 100 pasos.
 # Observa qué sucede.
-
+#
 # Escribe aquí tu código
-
+#t.forward(100)
 
 # ------------------------------------------
 # Girar la tortuga
@@ -60,8 +67,8 @@ import turtle
 # Luego avanza otros 100 pasos.
 
 # Escribe aquí tu código
-
-
+#t.left(90)
+#t.forward(100)
 # ------------------------------------------
 # Dibujar un cuadrado 
 # ------------------------------------------
@@ -69,7 +76,7 @@ import turtle
 # - 4 lados
 # - 4 giros de 90 grados
 
-print("Dibujando un cuadrado...")
+#print("Dibujando un cuadrado...")
 
 # TODO 5:
 # Completa los movimientos necesarios
@@ -78,8 +85,21 @@ print("Dibujando un cuadrado...")
 # La tortuga debe terminar donde empezó.
 
 # Escribe aquí tu código
+t.penup()
+t.goto(0,0)
+t.pendown()
 
+for i in range(4):
+    t.forward(100)
+    t. left(90)
 
+t.penup()
+t.goto(100,0)
+t.pendown()
+
+for i in range(4):
+    t.forward(100)
+    t.left(90)
 # ------------------------------------------
 # Paso EXTRA (opcional)
 # ------------------------------------------
@@ -88,8 +108,22 @@ print("Dibujando un cuadrado...")
 # Pista:
 # - Un triángulo tiene 3 lados.
 # - Un giro completo es 360 grados.
-# - ¿Cuánto debe girar en cada esquina?
+# - ¿Cuánto debe girar en cada esquina? 3 veses
+t.penup()
+t.goto(0,100)
+t.pendown()
+for i in range(3):
+    t.forward(100)
+    t.left(120)
 
-
+t.penup()
+t.forward(200)
+t.pendown()
+t.left(90)
+t.forward(86.60)
+t.left(90)
+t.forward(150)
+t.penup()
+t.goto(-20,0)
 # Mantiene la ventana abierta hasta que hagas clic en ella
 pantalla.exitonclick()
