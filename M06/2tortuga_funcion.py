@@ -2,7 +2,7 @@
 ====================================================================
 Mi Primera Función en Turtle
 ====================================================================
-NOMBRE: 
+NOMBRE: Christian Mendoza
 Objetivo:
 Entender cómo encapsular código en una función para reutilizarlo y 
 dibujar figuras personalizadas de manera sencilla.
@@ -68,16 +68,27 @@ def mover(x, y):
 # ==================================================================
 
 # Dibujar una estrella/triángulo (3 lados)
-mover(-150, 0)
+mover(-300, 0)
 dibujar_figura(lados=3, tamaño=80, color_borde="darkgreen", color_relleno="lightgreen")
 
 # Dibujar un pentágono (5 lados)
-mover(0, 0)
+mover(-150, 0)
 dibujar_figura(lados=5, tamaño=60, color_borde="purple", color_relleno="plum")
 
 # Dibujar un hexágono (6 lados)
-mover(150, 0)
+mover(0, 0)
 dibujar_figura(lados=6, tamaño=50, color_borde="darkblue", color_relleno="skyblue")
+
+#Nueva figura sin el uso de la función dibujar_figura (un cuadrado rojo de 4 lados)
+mover(150, 0)
+t.color("red", "blue")
+t.begin_fill()
+for _ in range(4):
+    t.forward(60)
+    t.left(90)
+
+
+t.end_fill()
 
 
 # ==================================================================
@@ -85,12 +96,18 @@ dibujar_figura(lados=6, tamaño=50, color_borde="darkblue", color_relleno="skybl
 # ==================================================================
 """
 1.  ¿Cuantas funciones hay en este programa? Que proposito tienen? En tus propias palabras agrega comentario completo.
+Hay dos funciones:
+dibujar_figura : define la funcion para "automatizar" el dibujo o figura dependiendo sus lados
+mover : define la funcion para mover la tortuga a una nueva posicion sin dibujar.
 
 2. ¿Qué parámetro de la función 'dibujar_figura' tendrías que cambiar para hacer un octágono (8 lados)?
+El parametro lados, ya que el dibujo depende de los lados que se le asignen. se le pondria lados=8.
 
 3 ¿En que numero de linea termina la funcion mover?
+En la linea 63.
 
 4. Bajo la seccion de pruebas, intenta hacer una nueva figura sin el uso de la funcion dibujar_figura.
+Dibuje un cuadrado azul con los bordes rojos. Y Tuve que cambiar las posiciones para que cupiera en el recuadro.
 
 5. Guarda una captura de pantalla con las 4 figuras en la carpeta M06.
       
