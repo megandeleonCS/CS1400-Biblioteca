@@ -1,0 +1,114 @@
+# =============================================================
+# M6 Tarea: Funciones Reusables
+# Grecia Lopez Orozco
+# =============================================================
+
+# Parte 1: Funciones sin retorno
+
+def mostrar_bienvenida(nombre):
+    """Saluda a la persona usando su nombre"""
+    print(f"¡Hola, {nombre}! Bienvenido a clase hoy.")
+
+# 1. Nombre es la palabra que se usa para poner el nombre
+#    de la persona a la que vamos saludar
+
+# 2. Podemos usar esta función con diferentes nombres sin
+#    tener que cambiar el código cada vez
+
+
+# =============================================================
+# Parte 2: Funciones con retorno
+# =============================================================
+
+def calcular_descuento(precio, porcentaje=10):
+    """Calcula el precio despues de quitar el descuento"""
+    descuento = precio * (porcentaje / 100)
+    precio_final = precio - descuento
+    return precio_final
+
+
+def es_par(numero):
+    """Revisa si un numero es par o impar"""
+    return numero % 2 == 0
+
+# 3. La palabra que usamos para crear una función es def.
+# 4. Las funciones se llaman calcular_descuento y es_par.
+# 5. Si ponemos calcular_descuento(100), se quita el 10%,
+#    asi que terminamos pagando 90.
+# 6. Si ponemos calcular_descuento(200, 20), se quita el 20 %,
+#    así que el precio final es 160.
+
+# =============================================================
+# Parte 3: Pruebas de ejecución
+# =============================================================
+
+print("--- PRUEBA 1: Mostrar Bienvenida ---")
+mostrar_bienvenida("Ana")
+mostrar_bienvenida("Carlos")
+
+print("\n--- PRUEBA 2: Cálculo de Descuentos ---")
+
+compra_1 = calcular_descuento(100)
+print(f"Precio con descuento por defecto: ${compra_1}")
+
+compra_2 = calcular_descuento(200, 20)
+print(f"Precio con 20% de descuento: ${compra_2}")
+
+# 7. Cómo funcionan las dos funciones:
+#
+#    calcular_descuento:
+#    Poner el precio y el descuento.
+#    Calcular cuánto dinero se descuenta.
+#    Restar esa cantidad al precio original.
+#    Mostrar el precio final usando el resultado.
+#
+#    es_par:
+#    Poner un numero.
+#    Revisar si se puede dividir entre 2 sin que sobre nada.
+#    Si no sobra nada, es par; si sobra, es impar.
+
+# 8. Yo explicaria que calcular_descuento sirve para saber
+#    cuanto vamos a pagar por algo después de un descuento.
+#    Solo ponemos el precio y cuánto queremos descontar.
+#    Asi no tenemos que hacer las cuentas desde cero cada vez.
+
+# 9. Las funciones también sirven con precios que tienen centavos,
+#    como 49.99, o con descuentos que tienen decimales, como 15.5.
+
+compra_3 = calcular_descuento(49.99, 15.5)
+print(f"Precio con descuento: ${compra_3:.2f}")
+
+# =============================================================
+# Parte 4: Alcance y retorno
+# =============================================================
+
+resultado = mostrar_bienvenida("Julio")
+print(resultado)
+
+# 10. La variable resultado guarda None, que significa que no
+#     recibio ningun resultado de la funcion. La funcion solo
+#     enseña el saludo en la pantalla.
+
+# 11. Use return para guardar el precio final y poder usarlo
+#     despues en otras cuentas.
+
+# 12. Si escribimos print(descuento) fuera de la funcion,
+#     aparece un error porque esa palabra solo funciona dentro
+#     de la funcion donde la use
+
+# 13. La palabra descuento solo se usa dentro de esa funcion,
+#     por eso Python no la encuentra cuando intentamos usarla afuera.
+
+# 14. Si cambiamos return por print, el precio se verá en la
+#     pantalla, pero no podremos guardarlo para hacer otras cuentas.
+#     Al intentar sumar compra_1 + 5, puede aparecer un error
+#     si compra_1 tiene el valor None.
+
+# 15. Podemos escribir calcular_descuento(200, porcentaje=25)
+#     para indicar que queremos quitar el 25 %.
+
+compra_4 = calcular_descuento(200, porcentaje=25)
+print(f"Precio con descuento del 25 %: ${compra_4}")
+
+# 16. Agregue tres comillas dobles dentro de cada función para
+#     que fuera mas facil de entender y mas facil para que se me memorize.
