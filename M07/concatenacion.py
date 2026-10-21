@@ -14,8 +14,6 @@ print("Bienvenido")
 nombre = input("ingresa tu nombre\n")
 apellido = input("ingresa tu apellido\n")
 cancion = input("Escribe el nombre de tu canción favorita.\n")
-nombreCompleto = f"nombre completo {nombre} {apellido} y su cancion favorita es:{cancion}."
-print (nombreCompleto)
 # Una manera de validar entradas vacías
 # Toma en cuenta que cambios podrias realizar si tienen un segundo nombre, y/o un segundo apellido.
 # La meta es obtener su nombre completo.
@@ -39,16 +37,16 @@ cancion = cancion.strip().title()
 
 # TODO Tarea 3: Crear un variable llamado nombre_completo para juntar
 #  (concatenar) todos los nombres ingresados, usando los espacios adecuado.
-
-
-
+nombre_completo = nombre+" "+apellido
 # TODO Tarea 4: Mostrar el resultado con alguna frase como por ejemplo, "Tu nombre completo es  ___ "
-
-
+print (f"holla {nombre_completo} Es estupendo tenerte aquí de nuevo.")
 
 # TODO Tarea 5: Crear un ultimo variable, y agruegale más texto concatenado.
 # Puede ser un saludo, o un piropo que incluya el variable para la cancion.
 # Por ejemplo, "Hola ___, me encanta que tu cancion favorita sea ___! "
 
+frase_final = nombre_completo + " Me pareció que la elección de la canción " + cancion + " fue simplemente perfecta."
+print(frase_final)
 # Imprimir a la terminal
+print (f"¡Qué buen gusto musical tienes! Elegir {cancion} como tu canción favorita es realmente magnífico.")
 

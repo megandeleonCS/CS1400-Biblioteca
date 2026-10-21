@@ -1,0 +1,1 @@
+# Profesora recuerda que hice diccionarios, pero por alguna razón perdí lo que puse en VS Code.
